@@ -1,0 +1,5 @@
+work/
+site/
+prev/
+__pycache__/
+*.p12

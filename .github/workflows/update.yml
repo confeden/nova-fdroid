@@ -1,0 +1,87 @@
+name: Update repo
+
+# Polls the latest Nova-Android release; builds and publishes only when its
+# -fdroid.apk is not in gh-pages yet, so most runs end after the check job.
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Rebuild even if the latest release is already published
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    outputs:
+      build: ${{ steps.check.outputs.build }}
+      tag: ${{ steps.check.outputs.tag }}
+      name: ${{ steps.check.outputs.name }}
+      url: ${{ steps.check.outputs.url }}
+      sha256: ${{ steps.check.outputs.sha256 }}
+    steps:
+      - uses: actions/checkout@v5
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 fdroid/build.py check --force '${{ inputs.force || false }}'
+
+  build:
+    needs: check
+    if: needs.check.outputs.build == 'true'
+    runs-on: ubuntu-24.04
+    # The fdroidserver 2.4.3 this repo was tested against locally.
+    container: ubuntu:26.04
+    steps:
+      - name: Install fdroidserver
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq --no-install-recommends \
+            fdroidserver default-jdk-headless git ca-certificates python3-qrcode > /dev/null
+          fdroid --version
+
+      - uses: actions/checkout@v5
+        with:
+          path: src
+
+      - name: Fetch the published repo
+        run: |
+          git clone --quiet --depth 1 --branch gh-pages \
+            "https://github.com/${GITHUB_REPOSITORY}.git" prev || mkdir -p prev
+
+      - name: Build
+        env:
+          FDROID_KEYSTORE_B64: ${{ secrets.FDROID_KEYSTORE_B64 }}
+          FDROID_KEYSTORE_PASS: ${{ secrets.FDROID_KEYSTORE_PASS }}
+          TAG: ${{ needs.check.outputs.tag }}
+          NAME: ${{ needs.check.outputs.name }}
+          URL: ${{ needs.check.outputs.url }}
+          SHA256: ${{ needs.check.outputs.sha256 }}
+        run: |
+          python3 src/fdroid/build.py build --tag "$TAG" --name "$NAME" --url "$URL" \
+            --sha256 "$SHA256" --prev prev --work work --out site
+
+      # One orphan commit, force-pushed: history would keep every 60 MB APK forever.
+      - name: Publish gh-pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ needs.check.outputs.tag }}
+        run: |
+          cd site
+          git init -q -b gh-pages
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -q -m "Publish $TAG"
+          git push --quiet --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages

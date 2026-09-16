@@ -1,0 +1,21 @@
+# Public part of the repo config. The keystore and its password arrive from the
+# workflow's secrets; nothing in this file is private.
+repo_url: https://nova-app.eu/fdroid/repo
+repo_name: Nova
+repo_icon: icon.png
+repo_description: >-
+  Репозиторий Nova для Android от автора приложения: те же APK, что в релизах
+  на GitHub, подписанные ключом автора. Новая версия появляется здесь вскоре
+  после выхода релиза. Nova for Android from its author: the developer-signed
+  APKs of the GitHub releases.
+
+archive_older: 0
+
+repo_keyalias: nova-fdroid
+keystore: keystore.p12
+keystorepass: {env: FDROID_KEYSTORE_PASS}
+keypass: {env: FDROID_KEYSTORE_PASS}
+keydname: CN=Nova F-Droid repo, OU=F-Droid
+
+mirrors:
+  - url: https://confeden.github.io/nova-fdroid/fdroid

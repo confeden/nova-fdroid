@@ -1,0 +1,21 @@
+Categories:
+  - VPN & Proxy
+
+License: GPL-3.0-only
+
+AuthorName: confeden
+WebSite: https://nova-app.eu/docs/nova-android.html
+SourceCode: https://github.com/confeden/Nova-Android
+IssueTracker: https://github.com/confeden/Nova-Android/issues
+Changelog: https://github.com/confeden/Nova-Android/releases
+
+AntiFeatures:
+  NonFreeNet:
+    en-US: The built-in transports connect to Cloudflare WARP/MASQUE and Opera's proxy
+      servers, whose server side is not free software. Profiles imported by the user
+      go to servers of their own choosing.
+    ru: Встроенные транспорты подключаются к Cloudflare WARP/MASQUE и прокси Opera,
+      серверная часть которых — несвободное ПО. Импортированные профили ведут на
+      серверы, которые выбрал сам пользователь.
+
+AutoName: Nova

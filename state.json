@@ -1,0 +1,12 @@
+{
+  "tag": "v1.32.4",
+  "asset": "Nova_1.32.4-fdroid.apk",
+  "asset_sha256": "904ce738d40b319502e06fe1c3b94308fd30a235d32ba4df6a54b867772c4f05",
+  "version_name": "1.32.4",
+  "version_code": 159,
+  "versions": [
+    158,
+    159
+  ],
+  "built": "2026-09-18T17:41:18Z"
+}

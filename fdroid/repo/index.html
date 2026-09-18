@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova — репозиторий F-Droid</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="icons/icon.png">
+<style>
+:root { color-scheme: dark; }
+body { margin: 0; background: #0b0f1a; color: #e6e9f2; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 560px; margin: 0 auto; padding: 32px 16px 48px; }
+.head { display: flex; align-items: center; gap: 14px; }
+.head img { width: 56px; height: 56px; border-radius: 14px; }
+h1 { font-size: 24px; margin: 0; }
+.ver { color: #9aa3b8; font-size: 14px; }
+.btn { display: block; margin: 24px 0 8px; padding: 14px 18px; border-radius: 12px; text-align: center;
+        font-weight: 600; color: #fff; text-decoration: none; background: linear-gradient(135deg, #3b5bdb, #9b6dff); }
+.hint { color: #9aa3b8; font-size: 14px; margin: 0 0 24px; }
+h2 { font-size: 16px; margin: 28px 0 8px; }
+code { display: block; padding: 10px 12px; border-radius: 10px; background: #151b2b; word-break: break-all; font-size: 13px; }
+.qr { display: block; width: 220px; max-width: 100%; margin: 12px 0; border-radius: 10px; background: #fff; padding: 8px; }
+a { color: #8fb0ff; }
+</style>
+</head>
+<body>
+<main>
+<div class="head"><img src="icons/icon.png" alt=""><div><h1>Nova для Android</h1>
+<div class="ver">Репозиторий F-Droid · версия 1.32.4 (159)</div></div></div>
+
+<a class="btn" href="fdroidrepos://nova-app.eu/fdroid/repo?fingerprint=3f145f0cc617fa93c3af95afd2dcbd0c0f115870013a6a21cf0827ccb4db6067">Добавить в F-Droid</a>
+<p class="hint">Кнопка открывает F-Droid (или Droid-ify, Neo Store) на телефоне, где он уже установлен.
+После добавления Nova появится в каталоге, а обновления будут приходить через него.</p>
+
+<h2>Добавить вручную</h2>
+<p class="hint">F-Droid → Настройки → Репозитории → «+», адрес:</p>
+<code>https://nova-app.eu/fdroid/repo?fingerprint=3f145f0cc617fa93c3af95afd2dcbd0c0f115870013a6a21cf0827ccb4db6067</code>
+<img class="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeoAAAHqAQAAAADjFjCXAAAEkUlEQVR4nO2dTc6jOBCG3xojZWmkPkCOQm7QR/o0N4Oj5AZ4GQn09sJVtol6BdEwKFULkgCPAKlU/zhCHJDpnyM04Ljjjjv+n+FJVB5YBVO/ijySCIBV7LRVRHoASB3s9O4jV3f8S/FAksyuVn6eNwIIFOkDMWV1BMh5FUz3BRhIkvOHru74t+JquVJnu+NLMDxFgEhyTDfqKQCydXx87uqOfxvebX6FBdP9JQQCBQiLIK4dp98vIbB2QOqWD17d8e/Eu/cdw/NGAQBOPQRIN+ZobhgD5f3sSz+742fhWeusfJLTByFSDwzzrwVIvXCw4/oZCSB94OqOfy++5pwUQCCGOVAeCJQHAP2WOtRNzjBySnv+zTt+QbxTywUASKtg6iFEAmyzCqY+NEhbV770szt+Fg5yDqpHAxcAcQHJBRzrSXEBx6hFEzuZ5HjpZ3f8LBy5VDdUNYuLamLZZ6eQHBFyqS5/c61zfJfkCvGIwKpwpn9ko3/k0prDMbqtc3yvWFsikGMs3wCYrQvMzjWfPOvGPazjB6S6Twxm5lTNou3jHJhtHeyA2sRLP7vjZ+GaOWiohk1wR6rXVf9L00mrsLjWOb5PLF8N2blmC6dmDsAwh/xNve6s8Z8q4aWf3fGz8NIRW4VIvRAACKwdpzthLbCwiLYqAE6PPCqwnH3zjl8U19wAQElQ1a9mC5fDN9un7riI2zrHd4lmE7PV4XKEF8maUlgiYXFdrqF4XOf4brGkQQM5K9BZDSVbwlhryKVe7HGd47tFq28ziuc0Q1Z/qmjlrqYernWO75NNz9WMW2235jkU078aBHpc5/gBse5/jeusVMx5o4RaQy5e122d47ululQtxgHtz8HaEtYWKwfc1jm+WxoLl61ebncBm7zWashlH9zWOb5fmvk6lAbFX+K6zT6fdHL8kFjktrQd2TZzLU6YbIZRvF7n+AGpfrXRJtYN2wLdZvrJ4zrH90rTjCDbnheKw30r2ulYgGcTjh/Eh2d9AexGIIlY4/WV3wfTmvEMAAjkv77OieNHcH0L0WaJAZH7AgxPEXmkLjtheQCwIaeXyM/8oas7/n14M0HSTNXBuv9N1IdYUorofVjHD8lbR8IUrsR19ZWxuZhD27jWOb5PWMaY2o5ESVWbo6xjKd6HdfyQNIZM84XSG2vm64pxQ43/vF7n+F5pdK2dIK4llc1oZ3WzXjlxfL9YMU4HSpr5kqKOzVjKmCGfr3P8kFgisZkvIUs2C5QlTny+zvGP4UWlRuhasSLSWTZRxk2QbsTU68xJLimff/OOXxHfviPGdtKpdL9qqwx1vs4rJ44fwssa7KnLvTFMvR7OgdwkHeSRbuXd/1XU/55/845fEM9vYQsQrMEfX8KBa0ekXgCEBQMBTPdX8x8U/MjVHXdcJRCT3LQ3m/9lQjrIz/NmucYc1DD+/27e8Svg2zXYVyHSr2z1ON3VoMkw90LglZcuFsSXaA350s/u+Fk43oc3y0B7XWyifQs21vUTPZtwfK+0OexcVkiMNjdc39vJRbtaL/Yc1vG9Iv5PnY477vgX4H8AY+KtP3OrH2EAAAAASUVORK5CYII=" alt="QR-код адреса репозитория">
+
+<h2>Если nova-app.eu недоступен</h2>
+<p class="hint">Зеркало на GitHub Pages с тем же ключом. F-Droid и так переключается на него сам;
+добавлять вручную нужно, только если основной адрес не открывается вовсе.</p>
+<code>https://confeden.github.io/nova-fdroid/fdroid/repo?fingerprint=3f145f0cc617fa93c3af95afd2dcbd0c0f115870013a6a21cf0827ccb4db6067</code>
+
+<p class="hint">Здесь те же APK, что в <a href="https://github.com/confeden/Nova-Android/releases">релизах на GitHub</a>,
+подписанные ключом автора. Приложение, установленное из релиза, обновляется отсюда без переустановки.</p>
+</main>
+</body>
+</html>

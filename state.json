@@ -1,0 +1,12 @@
+{
+  "tag": "v1.32.7",
+  "asset": "Nova_1.32.7-fdroid.apk",
+  "asset_sha256": "087efb6a826f26812a46e89330cecd32082ef46b20660e2634e35d2a80f5cc1a",
+  "version_name": "1.32.7",
+  "version_code": 162,
+  "versions": [
+    161,
+    162
+  ],
+  "built": "2026-10-08T16:43:46Z"
+}
